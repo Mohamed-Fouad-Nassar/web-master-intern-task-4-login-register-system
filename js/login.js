@@ -11,6 +11,13 @@ const loginPassword = document.getElementById("login-password");
 const loginEmailError = document.getElementById("login-email-error");
 const loginPasswordError = document.getElementById("login-password-error");
 
+// check if user is already logged in
+const user = localStorage.getItem("user");
+if (user) {
+  loginFormError.textContent = "You Already Logged In";
+  loginForm.classList.add("d-none");
+}
+
 // check for email
 function checkEmailField() {
   const emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
@@ -71,13 +78,6 @@ function login(email, password) {
       loginFormSuccess.textContent = "User logged in successfully";
       setTimeout(() => {
         location.replace(`./profile.html`);
-        // location.replace(
-        //   `${
-        //     location.href.startsWith("https://")
-        //       ? "./web-master-intern-task-4-login-register-system"
-        //       : "."
-        //   }/profile.html`
-        // );
       }, 1000);
     } else {
       loginFormError.textContent = "Wrong password. Please try again";

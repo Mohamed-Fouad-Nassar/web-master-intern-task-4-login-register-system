@@ -15,6 +15,13 @@ const registerPasswordError = document.getElementById(
   "register-password-error"
 );
 
+// check if user is already logged in
+const user = localStorage.getItem("user");
+if (user) {
+  registerFormError.textContent = "You Already Logged In";
+  registerForm.classList.add("d-none");
+}
+
 // check for name
 function checkNameField() {
   if (registerName.value === "") {
@@ -74,13 +81,6 @@ function addUserToLocalStorage(data) {
 
   setTimeout(() => {
     location.replace(`./index.html`);
-    // location.replace(
-    //   `${
-    //     location.href.startsWith("https://")
-    //       ? "./web-master-intern-task-4-login-register-system"
-    //       : "."
-    //   }/index.html`
-    // );
   }, 1000);
 }
 // register

@@ -76,7 +76,7 @@ function addUserToLocalStorage(data) {
     location.replace(
       `${
         location.href.startsWith("https://")
-          ? "/web-master-intern-task-4-login-register-system"
+          ? "./web-master-intern-task-4-login-register-system"
           : "."
       }/index.html`
     );

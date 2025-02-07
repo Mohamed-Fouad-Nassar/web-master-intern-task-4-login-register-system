@@ -70,13 +70,14 @@ function login(email, password) {
 
       loginFormSuccess.textContent = "User logged in successfully";
       setTimeout(() => {
-        location.replace(
-          `${
-            location.href.startsWith("https://")
-              ? "./web-master-intern-task-4-login-register-system"
-              : "."
-          }/profile.html`
-        );
+        location.replace(`./profile.html`);
+        // location.replace(
+        //   `${
+        //     location.href.startsWith("https://")
+        //       ? "./web-master-intern-task-4-login-register-system"
+        //       : "."
+        //   }/profile.html`
+        // );
       }, 1000);
     } else {
       loginFormError.textContent = "Wrong password. Please try again";

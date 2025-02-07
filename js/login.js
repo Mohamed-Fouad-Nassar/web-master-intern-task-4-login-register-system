@@ -73,7 +73,7 @@ function login(email, password) {
         location.replace(
           `${
             location.href.startsWith("https://")
-              ? "web-master-intern-task-4-login-register-system"
+              ? "/web-master-intern-task-4-login-register-system"
               : "."
           }/profile.html`
         );

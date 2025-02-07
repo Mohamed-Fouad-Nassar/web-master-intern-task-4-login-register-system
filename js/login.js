@@ -55,15 +55,31 @@ function login(email, password) {
     const usersData = JSON.parse(users);
     const user = usersData.find((user) => user?.email === email);
 
+    if (!user) {
+      loginFormError.textContent =
+        "User doesn't exists. please log in with another email or register this email";
+      return;
+    }
+
     const isUserCorrect = user?.password === password;
     if (isUserCorrect) {
+      loginFormError.textContent = "";
+
       // set current user to localStorage
       localStorage.setItem("user", JSON.stringify(user));
 
       loginFormSuccess.textContent = "User logged in successfully";
       setTimeout(() => {
-        location.href = "/profile.html";
+        location.replace(
+          `${
+            location.href.startsWith("https://")
+              ? "web-master-intern-task-4-login-register-system"
+              : "."
+          }/profile.html`
+        );
       }, 1000);
+    } else {
+      loginFormError.textContent = "Wrong password. Please try again";
     }
   }
 }

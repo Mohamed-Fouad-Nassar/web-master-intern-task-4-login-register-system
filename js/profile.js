@@ -32,6 +32,12 @@ logOutBtn.addEventListener("click", () => {
 
   profileSuccess.textContent = "User logged out successfully";
   setTimeout(() => {
-    location.href = "/index.html";
+    location.replace(
+      `${
+        location.href.startsWith("https://")
+          ? "web-master-intern-task-4-login-register-system"
+          : "."
+      }/index.html`
+    );
   }, 1000);
 });
